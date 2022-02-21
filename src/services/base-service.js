@@ -21,6 +21,6 @@ BaseHttpClientService.post = async (url, param) => {
 		});
 		return response.data;
 	} catch (error) {
-		console.error(`baseService.post ${url + endpoint}`, error);
+		console.error(`baseService.post`, error);
 	}
 };
