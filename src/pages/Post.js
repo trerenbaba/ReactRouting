@@ -6,8 +6,8 @@ function Post() {
 	useEffect(async () => {
 		// Get Örneği
 
-		let data2 = await PostApiClient.getAllProducts('products');
-		let data3 = await PostApiClient.getProductById('products', 1);
+		let data2 = await PostApiClient.GetAllPosts('products');
+		let data3 = await PostApiClient.GetCommentsByPostId('products', 1);
 
 		let data = await BaseHttpClientService.get(
 			'https://jsonplaceholder.typicode.com/posts'
