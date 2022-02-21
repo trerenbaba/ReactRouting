@@ -2,7 +2,7 @@ import { BaseHttpClientService } from './base-service';
 
 export const PostApiClient = {};
 
-PostApiClient.getAllProducts = async (url) => {
+PostApiClient.GetAllPosts = async (url) => {
 	try {
 		const response = await BaseHttpClientService.get(url);
 		return response;
@@ -11,9 +11,9 @@ PostApiClient.getAllProducts = async (url) => {
 	}
 };
 
-PostApiClient.getProductById = async (url, id) => {
+PostApiClient.GetCommentsByPostId = async (url, postId) => {
 	try {
-		const response = await BaseHttpClientService.get(`${url}?productId=${id}`);
+		const response = await BaseHttpClientService.get(`${url}?postId=${postId}`);
 		return response;
 	} catch (error) {
 		console.log('ProductApiClient Error', error);
