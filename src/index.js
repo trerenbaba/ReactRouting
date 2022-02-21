@@ -8,6 +8,7 @@ import NotFound from './pages/NotFound';
 import About from './pages/About';
 import Home from './pages/Home';
 import Login from './pages/Login';
+import Users from './pages/Users';
 
 ReactDOM.render(
 	<React.StrictMode>
@@ -17,6 +18,7 @@ ReactDOM.render(
 				<Route path="/" element={<App />}>
 					<Route path="/about" element={<About />}></Route>
 					<Route path="" element={<Home />}></Route>
+					<Route path="/users" element={<Users />}></Route>
 					{/* anasayfaya yönledirdik */}
 				</Route>
 
