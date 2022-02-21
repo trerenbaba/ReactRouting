@@ -9,6 +9,8 @@ import About from './pages/About';
 import Home from './pages/Home';
 import Login from './pages/Login';
 import Users from './pages/Users';
+import Comment from './pages/Comment';
+import Post from './pages/Post';
 
 ReactDOM.render(
 	<React.StrictMode>
@@ -19,6 +21,8 @@ ReactDOM.render(
 					<Route path="/about" element={<About />}></Route>
 					<Route path="" element={<Home />}></Route>
 					<Route path="/users" element={<Users />}></Route>
+					<Route path="/comments" element={<Comment />}></Route>
+					<Route path="/posts" element={<Post />}></Route>
 					{/* anasayfaya yönledirdik */}
 				</Route>
 

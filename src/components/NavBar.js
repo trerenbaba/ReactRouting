@@ -24,6 +24,12 @@ function NavBar() {
 								<Link className="nav-item nav-link text-dark" to="/users">
 									Users
 								</Link>
+								<Link className="nav-item nav-link text-dark" to="/comments">
+									Comments
+								</Link>
+								<Link className="nav-item nav-link text-dark" to="/posts">
+									Posts
+								</Link>
 							</NavDropdown.Item>
 						</NavDropdown>
 					</Nav>
