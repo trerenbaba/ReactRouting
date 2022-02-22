@@ -1,8 +1,22 @@
 import React from 'react';
+import { useNavigate } from 'react-router';
 import { Container, Nav, Navbar, NavDropdown } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
+import { AuthService } from '../services/auth.service';
 
 function NavBar() {
+	const isAuth = AuthService.isAuthenticated();
+	const user = AuthService.Name();
+	const navigate = useNavigate();
+
+	console.log('isAuth', isAuth);
+
+	const logout = () => {
+		AuthService.logout((url) => {
+			navigate(url);
+		});
+	};
+
 	return (
 		<Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
 			<Container>
@@ -34,9 +48,21 @@ function NavBar() {
 						</NavDropdown>
 					</Nav>
 					<Nav>
-						<Link className="nav-item nav-link" to="/profile">
-							Muhammed
-						</Link>
+						{isAuth && (
+							<>
+								<Link className="nav-item nav-link" to="/profile">
+									{user}
+								</Link>
+								<a className="nav-item nav-link" onClick={() => logout()}>
+									Oturumu Kapat
+								</a>
+							</>
+						)}
+						{!isAuth && (
+							<Link className="nav-item nav-link" to="/login">
+								Oturum Aç
+							</Link>
+						)}
 					</Nav>
 				</Navbar.Collapse>
 			</Container>

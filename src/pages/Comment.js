@@ -17,7 +17,7 @@ function Comment() {
 		}
 	}, []);
 
-	return <div></div>;
+	return <div>Comments Page</div>;
 }
 
 export default Comment;

@@ -1,5 +1,5 @@
 import React, { useRef } from 'react';
-import { Form, Button } from 'react-bootstrap';
+import { Form, Button, Container } from 'react-bootstrap';
 import { useNavigate } from 'react-router';
 import { AuthService } from '../services/auth.service';
 
@@ -12,9 +12,12 @@ function Login() {
 
 		const formData = new FormData(formRef.current);
 
+		formData.get('rememberme').valueOf();
+
 		const param = {
 			username: formData.get('username'),
 			password: formData.get('password'),
+			rememberme: formData.get('rememberme') == 'on' ? true : false,
 		};
 
 		console.log('param', param);
@@ -29,7 +32,7 @@ function Login() {
 	};
 
 	return (
-		<div>
+		<Container>
 			<Form ref={formRef} method="get" onSubmit={formSubmit}>
 				<Form.Group className="mb-3" controlId="formBasicEmail">
 					<Form.Label>Username</Form.Label>
@@ -38,9 +41,6 @@ function Login() {
 						type="text"
 						placeholder="Enter Username"
 					/>
-					<Form.Text className="text-muted">
-						We'll never share your email with anyone else.
-					</Form.Text>
 				</Form.Group>
 
 				<Form.Group className="mb-3" controlId="formBasicPassword">
@@ -52,13 +52,13 @@ function Login() {
 					/>
 				</Form.Group>
 				<Form.Group className="mb-3" controlId="formBasicCheckbox">
-					<Form.Check type="checkbox" label="Check me out" />
+					<Form.Check name="rememberme" type="checkbox" label="Remember Me" />
 				</Form.Group>
 				<Button variant="primary" type="submit">
 					Login
 				</Button>
 			</Form>
-		</div>
+		</Container>
 	);
 }
 
