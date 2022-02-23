@@ -16,6 +16,12 @@ export const AuthReducer = (state = AuthState, action) => {
 				username: AuthService.Name(), // git LocalStorage yada sessionStorage'dan ilgili bilgileri oku
 				isAuthenticated: AuthService.isAuthenticated(),
 			};
+		case 'ClearAuthState':
+			return {
+				...state,
+				username: AuthState.username, // git LocalStorage yada sessionStorage'dan ilgili bilgileri oku
+				isAuthenticated: AuthState.isAuthenticated,
+			};
 		default:
 			return state;
 	}

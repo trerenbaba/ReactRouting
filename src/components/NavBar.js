@@ -3,7 +3,8 @@ import { useNavigate } from 'react-router';
 import { Container, Nav, Navbar, NavDropdown } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import { AuthService } from '../services/auth.service';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import { ClearAuthState } from '../store/action/auth.action';
 
 function NavBar() {
 	// const isAuth = AuthService.isAuthenticated();
@@ -12,11 +13,13 @@ function NavBar() {
 
 	// bu kısımda ise store içerisinde state bağlandık. bunu yapmak için ise useSelector denilen bir hook kullandık. storedan bilgi çekmek için useSelector hook kullanıyoruz.
 	const authState = useSelector((store) => store.authState);
+	const dispatch = useDispatch();
 
 	// console.log('isAuth', isAuth);
 
 	const logout = () => {
 		AuthService.logout((url) => {
+			dispatch(ClearAuthState());
 			navigate(url);
 		});
 	};

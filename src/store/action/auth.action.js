@@ -8,3 +8,11 @@ export const CheckAuthState = () => {
 		payload: null,
 	};
 };
+
+// logout olduğumuzda ise bunu çağıralım
+export const ClearAuthState = () => {
+	return {
+		type: 'ClearAuthState', // reducer actiondan gönderilen type göre payload bilgisini alıp state günceller.
+		payload: null,
+	};
+};
