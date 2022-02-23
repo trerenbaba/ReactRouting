@@ -14,6 +14,7 @@ import Post from './pages/Post';
 import AuthGuard from './guards/auth.guard';
 import { Provider } from 'react-redux'; // state manegement için uygulama genelinde react-redux kullanacağımızı tüm uygulamayı provider ile sarmalıyarak söyledik.
 import { myStore } from './store/mystore'; // uygulamanın store'unu tanıttık.
+import Product from './pages/Product';
 
 ReactDOM.render(
 	<React.StrictMode>
@@ -34,6 +35,7 @@ ReactDOM.render(
 							}
 						></Route>
 						<Route path="/posts" element={<Post />}></Route>
+						<Route path="/products" element={<Product />}></Route>
 						{/* anasayfaya yönledirdik */}
 					</Route>
 

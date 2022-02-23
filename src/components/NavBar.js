@@ -45,11 +45,20 @@ function NavBar() {
 								<Link className="nav-item nav-link text-dark" to="/users">
 									Users
 								</Link>
+							</NavDropdown.Item>
+							<NavDropdown.Item>
 								<Link className="nav-item nav-link text-dark" to="/comments">
 									Comments
 								</Link>
+							</NavDropdown.Item>
+							<NavDropdown.Item>
 								<Link className="nav-item nav-link text-dark" to="/posts">
 									Posts
+								</Link>
+							</NavDropdown.Item>
+							<NavDropdown.Item>
+								<Link className="nav-item nav-link text-dark" to="/products">
+									Products
 								</Link>
 							</NavDropdown.Item>
 						</NavDropdown>

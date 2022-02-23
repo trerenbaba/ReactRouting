@@ -6,6 +6,8 @@ import { applyMiddleware, combineReducers, createStore } from 'redux';
 import thunk from 'redux-thunk';
 import { AuthReducer } from './reducer/auth.reducer';
 import { composeWithDevTools } from 'redux-devtools-extension';
+import { ProductReducer } from './reducer/product.reducer';
+import { CartReducer } from './reducer/cart.reducer';
 // store'a reducer bağlamış olduk
 
 //combineReducers function ile sistemdeki tüm reducerları store tanıtmış oluruz.
@@ -13,6 +15,8 @@ import { composeWithDevTools } from 'redux-devtools-extension';
 export const myStore = createStore(
 	combineReducers({
 		authState: AuthReducer, // reducer alias authState
+		productState: ProductReducer,
+		cartState: CartReducer,
 	}),
 	composeWithDevTools(applyMiddleware(thunk))
 );

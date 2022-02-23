@@ -26,7 +26,6 @@ function Login() {
 		};
 
 		console.log('param', param);
-
 		AuthService.login(param, (response, error) => {
 			if (error) {
 				alert(error);
