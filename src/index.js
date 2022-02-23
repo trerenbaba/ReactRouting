@@ -12,31 +12,35 @@ import Users from './pages/Users';
 import Comment from './pages/Comment';
 import Post from './pages/Post';
 import AuthGuard from './guards/auth.guard';
+import { Provider } from 'react-redux'; // state manegement için uygulama genelinde react-redux kullanacağımızı tüm uygulamayı provider ile sarmalıyarak söyledik.
+import { myStore } from './store/mystore'; // uygulamanın store'unu tanıttık.
 
 ReactDOM.render(
 	<React.StrictMode>
-		<BrowserRouter>
-			<Routes>
-				<Route path="/login" element={<Login />}></Route>
-				<Route path="/" element={<App />}>
-					<Route path="/about" element={<About />}></Route>
-					<Route path="" element={<Home />}></Route>
-					<Route path="/users" element={<Users />}></Route>
-					<Route
-						path="/comments"
-						element={
-							<AuthGuard>
-								<Comment />
-							</AuthGuard>
-						}
-					></Route>
-					<Route path="/posts" element={<Post />}></Route>
-					{/* anasayfaya yönledirdik */}
-				</Route>
+		<Provider store={myStore}>
+			<BrowserRouter>
+				<Routes>
+					<Route path="/login" element={<Login />}></Route>
+					<Route path="/" element={<App />}>
+						<Route path="/about" element={<About />}></Route>
+						<Route path="" element={<Home />}></Route>
+						<Route path="/users" element={<Users />}></Route>
+						<Route
+							path="/comments"
+							element={
+								<AuthGuard>
+									<Comment />
+								</AuthGuard>
+							}
+						></Route>
+						<Route path="/posts" element={<Post />}></Route>
+						{/* anasayfaya yönledirdik */}
+					</Route>
 
-				<Route path="*" element={<NotFound />}></Route>
-			</Routes>
-		</BrowserRouter>
+					<Route path="*" element={<NotFound />}></Route>
+				</Routes>
+			</BrowserRouter>
+		</Provider>
 	</React.StrictMode>,
 	document.getElementById('root')
 );

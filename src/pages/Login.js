@@ -1,11 +1,16 @@
 import React, { useRef } from 'react';
 import { Form, Button, Container } from 'react-bootstrap';
+import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router';
 import { AuthService } from '../services/auth.service';
+import { CheckAuthState } from '../store/action/auth.action';
 
 function Login() {
 	const formRef = useRef();
 	const navigate = useNavigate(); // js tarafında yönlendirme işlemi yapar.
+
+	// store güncellemek için ise React Reduxtan gelen useDispatch function kullanıyoruz.
+	const dispatch = useDispatch();
 
 	const formSubmit = (event) => {
 		event.preventDefault();
@@ -26,6 +31,9 @@ function Login() {
 			if (error) {
 				alert(error);
 			} else {
+				// login olunca authstate güncellememiz lazım.
+				dispatch(CheckAuthState());
+				// dispatch ile AuthState action tetikledik.
 				navigate(response);
 			}
 		});
