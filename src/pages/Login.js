@@ -17,7 +17,7 @@ function Login() {
 
 		const formData = new FormData(formRef.current);
 
-		formData.get('rememberme').valueOf();
+		// formData.get('rememberme').valueOf();
 
 		const param = {
 			username: formData.get('username'),
