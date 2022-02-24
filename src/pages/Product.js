@@ -1,7 +1,7 @@
 import React from 'react';
 import { Card, Col, ListGroup, ListGroupItem, Row } from 'react-bootstrap';
 import { useSelector, useDispatch } from 'react-redux';
-import { AddToCart } from '../store/action/cart.action';
+import { AddToCart, RemoveFromCart } from '../store/action/cart.action';
 
 function Product() {
 	const products = useSelector((store) => store.productState.products);
@@ -17,6 +17,7 @@ function Product() {
 		};
 
 		dispatch(AddToCart(cartItem));
+		// dispatch(RemoveFromCart(1));
 	};
 
 	return (
