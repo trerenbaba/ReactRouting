@@ -51,4 +51,17 @@ export const CartService = {
 			total: _total,
 		};
 	},
+	DiscountQuantity:(id,stateCartItems)=>{
+		const cartItem=stateCartItems.find((x) =>x.id==id);
+
+		let _total =0;
+			stateCartItems.find((x)=>x.id==id).quantity -=1;
+			stateCartItems.forEach((item)=>{
+				_total+=Number(item.quantity)*Number(item.price);
+			})
+			return {
+				cartItems:[...stateCartItems],
+				total:_total
+			};	
+	}
 };

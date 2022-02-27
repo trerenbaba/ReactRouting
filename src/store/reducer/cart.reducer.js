@@ -10,7 +10,6 @@ export const CartReducer = (state = CartState, action) => {
 
 	switch (action.type) {
 		case 'AddToCart':
-			console.log('add');
 			const cartObject1 = CartService.AddToCart(
 				action.payload,
 				state.cartItems
@@ -22,22 +21,34 @@ export const CartReducer = (state = CartState, action) => {
 				total: cartObject1.total,
 			};
 		case 'RemoveFromCart':
-			console.log('remove');
 			const cartObject2 = CartService.RemoveFromCart(
 				action.payload.id,
 				state.cartItems
 			);
-
-			console.log('RemoveFromCart', cartObject2);
 
 			return {
 				...state,
 				cartItems: cartObject2.cartItems,
 				total: cartObject2.total,
 			};
+		case 'ClearFromCart':
+			return {
 
+				cartItems: [],
+				total: 0
+			}
+
+		case 'DiscountQuantity':
+			const cartObject3=CartService.DiscountQuantity(
+				action.payload.id,
+				state.cartItems
+			)
+			return {
+				...state,
+				cartItems:cartObject3.cartItems,
+				total:cartObject3.total
+			}	
 		default:
-			console.log('default');
 			return state;
 	}
 };

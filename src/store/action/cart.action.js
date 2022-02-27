@@ -11,3 +11,18 @@ export const RemoveFromCart = (id) => {
 		payload: { id: id },
 	};
 };
+
+export const ClearFromCart = () => {
+	return {
+		type:'ClearFromCart',
+		payload:[]
+	}
+}
+export const DiscountQuantity = (id) => {
+	return {
+		type:'DiscountQuantity',
+		payload:{id:id}
+	}
+}
+
+
